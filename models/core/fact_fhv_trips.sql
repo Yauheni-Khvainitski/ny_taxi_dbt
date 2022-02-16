@@ -15,7 +15,7 @@ select
     fhv.dropoff_datetime, 
     fhv.sr_flag
 from {{ ref('stg_fhv_tripdata') }} fhv
-left join dim_zones as pickup_zone on
+inner join dim_zones as pickup_zone on
     fhv.pickup_locationid = pickup_zone.locationid
-left join dim_zones as dropoff_zone on 
+inner join dim_zones as dropoff_zone on 
     fhv.dropoff_locationid = dropoff_zone.locationid
